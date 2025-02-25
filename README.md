@@ -22,6 +22,6 @@ The model achieves **97% accuracy** with an **AUC score of 0.9985** and an **Exp
 ## 🔧 Installation
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/yourusername/Alzheimer_Detection_Model.git
-cd Alzheimer_Detection_Model
+git clone https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML.git
+cd Alzheimers-Detection-ML
 pip install -r requirements.txt
