@@ -53,7 +53,7 @@ def load_model():
             return self.fc(x)
 
     model = CNNModel(num_classes=4)
-    model.load_state_dict(torch.load("CNN_Final.pth", weights_only=True))
+    model.load_state_dict(torch.load(r"Experiments/saved_models/CNN_Final.pth", weights_only=True))
     model.eval()
     return model
 
@@ -118,7 +118,8 @@ class GradCAM:
 
 # Overlay Heatmap over the input image
 def overlay_heatmap(image, cam, alpha=0.5):
-    image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+    
+    image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB) 
     heatmap = cv2.applyColorMap(np.uint8(255 * cam), cv2.COLORMAP_JET)
     heatmap = cv2.cvtColor(heatmap, cv2.COLOR_BGR2RGB)
     overlayed = cv2.addWeighted(image, 1 - alpha, heatmap, alpha, 0)
@@ -133,11 +134,10 @@ grad_cam = GradCAM(model, target_layer)
 # generating the grad cam of the input image
 def grad_cam_of_input(image):
     
+    image = image.convert('L').resize((128,128))
     input_tensor = preprocess_image(image)
-    
     # Generate Grad-CAM
     cam = grad_cam.generate_cam(input_tensor)
-        
     # Overlay the heatmap on the original image
     overlayed_image = overlay_heatmap(np.array(image), cam)
     
@@ -153,7 +153,7 @@ def random_image_selection():
     folder, folder_image_name = folders[i], folder_image_names[i]
     folder_sizes = [500, 2280, 916, 64]
     image_no = random.randint(2, folder_sizes[i] - 1)
-    zip_path = rf"../../Dataset/{folder}.zip"
+    zip_path = rf"Data/{folder}.zip"
     target_image_name = f"{folder_image_name}_{image_no}.jpg"
     with zipfile.ZipFile(zip_path, 'r') as zip_file:
         with zip_file.open(f"{folder}/{target_image_name}") as image_file:
@@ -177,7 +177,7 @@ def predict_and_calculate_confidence(image):
 
 
 # Grad cam image
-grad_cam_image = Image.open(r'grad_cam_plot_1000_dpi.png')
+grad_cam_image = Image.open(r'Results/GRAD CAM .png')
 
 explanations = [
     """
@@ -212,15 +212,21 @@ explanations = [
     
 ]
 
-
 # -------- HEADER --------
 st.markdown(
     "<h1 style='text-align: center;'>🧠 Alzheimer's Disease Detection</h1>", 
     unsafe_allow_html=True
 )
+
 st.markdown(
-    "<h4 style='text-align: center;'> by Geetha Shashank Pericherla | "
-    "<a href='https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/' target='_blank'><b>Repository Link</b></a> </h4>",
+    """
+    <h4 style='text-align: center;'>
+        by Geetha Shashank Pericherla | 
+        <a href='https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/' target='_blank' style='text-decoration: none;'>
+            <img src='https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png' width='40' style='vertical-align: middle;'> Repository Link
+        </a>
+    </h4>
+    """,
     unsafe_allow_html=True
 )
 
@@ -248,8 +254,8 @@ with col1:
     - It causes **brain atrophy, vascular shrinkage, and structural damage** over time.
     - Symptoms include **memory loss, cognitive decline, and behavioral changes** due to nerve cell degeneration.
     - Learn more about Alzheimer's disease:
-    - 📖 **[Alzheimer's Association](https://www.alz.org/)**
-    - 🔗 **[NIH Resource](https://www.nia.nih.gov/health/alzheimers)**
+        - 📖 **[Alzheimer's Association](https://www.alz.org/)**
+        - 🔗 **[NIH Resource](https://www.nia.nih.gov/health/alzheimers)**
     """)
 
 # -------- RIGHT COLUMN (Model Overview) --------
@@ -267,7 +273,7 @@ with col2:
 st.markdown("---")
 
 # -------- INPUT SECTION --------
-col1, col2, col3, col4 = st.columns([1, 0.5, 1,1])  # Adjust width proportions
+col1, col2, col3, col4 = st.columns([1.2, 0.5, 0.8,1])  # Adjust width proportions
 
 with col1:
     st.subheader("📥 Upload or Select Image")
