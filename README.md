@@ -1,10 +1,8 @@
 # 🧠 Alzheimer's Disease Detection using MRI Scans
 
-![Alzheimer's Detection](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Alzheimer%27s_Disease.png/640px-Alzheimer%27s_Disease.png)
 
 ## 🚀 Live Demo
-Experience the model in action:  
-## [Alzheimer's Detection Web App](https://huggingface.co/spaces/Shashank-pericherla/Alzheimers-Detection-ML)
+Experience the model in action:   [Alzheimer's Detection Web App](https://huggingface.co/spaces/Shashank-pericherla/Alzheimers-Detection-ML)
 
 
 ## 📌 Project Overview
@@ -61,7 +59,7 @@ The model was evaluated using:
 
 📌 **Performance Overview**
 
-| ![Classification Report]([Results/Classification Report.png](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Classification%20Report.png)) | ![Confusion Matrix](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Confusion%20Matrix.png) |
+| ![Classification Report](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Classification%20Report.png) | ![Confusion Matrix](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Confusion%20Matrix.png) |
 |:----------------------------------------------------------:|:------------------------------------------------:|
 | **Classification Report** | **Confusion Matrix** |
 
