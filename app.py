@@ -220,7 +220,7 @@ st.markdown(
     """
     <h4 style='text-align: center;'>
         by Geetha Shashank Pericherla | 
-        <a href='https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/' target='_blank' style='text-decoration: none;'>
+        <a href='https://github.com/Geetha-Shashank-Pericherla/Alzheimers-Detection-ML/' target='_blank' style='text-decoration: none;'>
             <img src='https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png' width='40' style='vertical-align: middle;'> Repository Link
         </a>
     </h4>
