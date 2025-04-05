@@ -1,125 +1,124 @@
-📜 README.md (Detailed Documentation)
-
-# Aerial Semantic Segmentation using U-Net in PyTorch
-
-## 📌 Overview
-This repository provides a **U-Net** model implementation for **semantic segmentation** of aerial images using **PyTorch**. The model is trained on aerial images with multiple classes such as roads, buildings, vegetation, etc.
-
-## 📂 Repository Structure
-```bash 
-📂 aerial-semantic-segmentation 
- │── 📂 data/
- │── 📂 models/ # Trained model weights
- │── 📂 notebooks/ # Jupyter notebook for visualization
- │── 📂 src/ # Source code
- │ │── dataset.py # Data loading
- │ │── model.py # U-Net model
- │ │── train.py # Training script
- │ │── predict.py # Prediction script
- │── 📂 results/ # Visualized outputs
- │── 📜 requirements.txt # Required Python libraries
- │── 📜 README.md # Documentation
- │── 📜 .gitignore # Ignore large files
-```
-
-## Table of Contents  
-- [Aerial Semantic Segmentation using U-Net in PyTorch](#aerial-semantic-segmentation-using-u-net-in-pytorch)
-  - [📌 Overview](#-overview)
-  - [📂 Repository Structure](#-repository-structure)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Dataset](#dataset)
-  - [🚀 Installation](#-installation)
-    - [1️⃣ Clone the Repository](#1️⃣-clone-the-repository)
-    - [Install Dependencies:](#install-dependencies)
-  - [Usage](#usage)
-    - [Model Architecture:](#model-architecture)
-    - [Training](#training)
-    - [Evaluation](#evaluation)
-  - [Results](#results)
-  - [References](#references)
+# 🧠 Alzheimer's Disease Detection using MRI Scans
 
 
-## Introduction  
-Semantic segmentation is a deep learning technique that assigns a class label to every pixel in an image. This project uses **U-Net**, a widely used architecture for segmentation tasks. The goal is to train a model that can identify different objects in aerial images, such as **buildings, trees, roads, and vehicles**.
-
-## Dataset  
-- [Semantic Segmentation Dataset](https://www.kaggle.com/datasets/bulentsiyah/semantic-drone-dataset/data)
-
-The dataset used is the **Semantic Drone Dataset**, which contains:  
-- **Original aerial images** (JPG format)  
-- **Semantic label images** (PNG format)  
-- **Class dictionary CSV** mapping labels to RGB colors  
-
-### Demo Images and their segmentation masks:
-![Semantic masks](https://github.com/Geetha-Shashank-Pericherla/Aerial-Semantic-Segmentation/blob/main/results/example_images.png)
+## 🚀 Live Demo
+Experience the model in action:   [Alzheimer's Detection Web App](https://huggingface.co/spaces/Shashank-pericherla/Alzheimers-Detection-ML)
 
 
-## 🚀 Installation
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/Geetha-Shashank-Pericherla/Aerial-Semantic-Segmentation.git
-cd Aerial-Semantic-Segmentation
-```
+## 📌 Project Overview
+Alzheimer’s disease is a progressive neurodegenerative disorder affecting millions worldwide. This project utilizes **Deep Learning (CNN)** to classify MRI brain scans into different stages of Alzheimer’s disease. The model is designed for **early detection**, aiding research and potential medical analysis.
 
-### Install Dependencies:
-To set up the environment, install the required dependencies:
+
+### 🔍 Features
+- **Multi-Class Classification** of MRI scans into various Alzheimer’s stages.
+- **Custom CNN Model** optimized for high accuracy.
+- **Grad-CAM Visualization** for interpretability.
+- **Robust Data Augmentation** to tackle class imbalance.
+- **Interactive Web App** built with **Streamlit**.
+
+
+## 🖼️ Dataset & Preprocessing
+The dataset contains MRI scans categorized into four classes:
+- **Non-Demented** 🟢
+- **Very Mild Demented** 🟡
+- **Mild Demented** 🟠
+- **Moderate Demented** 🔴
+
+![Sample MRI images](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Sample%20MRI%20Images.png)
+
+### 🏗 Data Balancing & Augmentation
+The dataset was highly imbalanced, requiring augmentation techniques such as:
+- **Rotation, Zooming, Flipping, Contrast Adjustments**
+- **Synthetic Data Generation** for underrepresented classes
+
+📊 **Data Distribution Before & After Balancing:**
+
+| ![Data Imbalance](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Data%20Distribution.png) | ![Augmented Data](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Data%20distribution%20after%20Oversampling.png) |
+|:---------------------------------------------:|:---------------------------------------------:|
+| **Before Augmentation** | **After Augmentation** |
+
+
+## 📈 Model Architecture
+A **6-layer CNN model** with Batch Normalization and Dropout was designed for feature extraction and classification. Key components include:
+- **Convolutional Layers** for spatial feature learning
+- **Max Pooling** for dimensionality reduction
+- **Fully Connected Layers** for classification
+
+🔧 **Model Training Performance**
+
+| ![Training Loss](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Training%20and%20Validation%20metrics.png) |
+|:----------------------------------------------------:|
+| **Training & Validation Loss/Accuracy** |
+
+
+## 🎯 Evaluation Metrics
+The model was evaluated using:
+- **Accuracy, Precision, Recall, F1-score**
+- **Confusion Matrix for Class-wise Performance**
+- **Grad-CAM Heatmaps for Model Explainability**
+
+📌 **Performance Overview**
+
+| ![Classification Report](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Classification%20Report.png) | ![Confusion Matrix](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/Confusion%20Matrix.png) |
+|:----------------------------------------------------------:|:------------------------------------------------:|
+| **Classification Report** | **Confusion Matrix** |
+
+
+## 🔍 Explainability with Grad-CAM
+To ensure **model interpretability**, Grad-CAM visualizations highlight the key regions influencing predictions.
+
+| ![Grad-CAM](https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML/blob/main/Results/GRAD%20CAM%20.png) |
+|:----------------------------------:|
+| **Grad-CAM Output** |
+
+
+## 🚀 How to Run Locally
+### 🔧 Prerequisites
+Ensure you have Python and the required dependencies installed:
 ```bash
 pip install -r requirements.txt
 ```
-or 
+### ▶ Run the Web App
 ```bash
-pip install torch torchvision segmentation-models-pytorch numpy pandas matplotlib opencv-python
+streamlit run app.py
 ```
 
-## Usage
-1. Run the Notebook
-Open and execute semantic_segmentation.ipynb to train the model and evaluate its performance.
 
-2. **Training**
-To train the model, run:
+## 🏆 Results & Insights
+- **Achieved over 97% accuracy** on testing data.
+- **Test Accuracy: 97%**
+- **AUC Score: 0.9985**
+- **Calibration Error: 0.0484**
+- **Grad-CAM heatmaps** provide reliable explainability for diagnosis.
+- **Augmentation significantly improved performance** on underrepresented classes.
+
+
+## 📌 Future Improvements
+- Implementing **Transformer-based Vision Models** for better performance.
+- Integrating **3D MRI Analysis** to enhance feature extraction.
+- Deploying the model on **cloud-based medical platforms**.
+
+
+## 📂 Repository Structure
+- **`src/`** → Python scripts for model training, evaluation, and inference.
+- **`notebooks/`** → Jupyter notebooks for EDA, training, and evaluation.
+- **`saved_models/`** → Trained models (`.pth` format).
+- **`results/`** → Accuracy reports and calibration plots.
+
+## 🔧 Installation
+Clone the repository and install dependencies:
 ```bash
-python train.py
+git clone https://github.com/Shashank-Pericherla/Alzheimers-Detection-ML.git
+cd Alzheimers-Detection-ML
+pip install -r requirements.txt
 ```
 
-3. Evaluation
-To test the trained model, run:
-```bash
-python evaluate.py
-```
-
-### Model Architecture:
-The model is based on U-Net, which consists of:
-- Encoder (Contracting Path): A series of convolutional layers followed by max-pooling.
-- Bottleneck: The lowest level of the U-Net before upsampling.
-- Decoder (Expanding Path): Upsampling layers to restore image size, with skip connections from the encoder.
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork the repo, report issues, or submit PRs.
 
 
-### Training
-The model is trained using:
-- Adam optimizer
-- Binary Cross-Entropy (BCE) loss with Tversky Loss
-- Batch size = 4
-- 15 epochs
-
-### Evaluation
-After training, the model is evaluated using:
-- Pixel accuracy
-- Intersection over Union (IoU) score
-
-## Results
-- The model segments aerial images into different classes.
-- Sample outputs include original images, ground truth masks, and predicted masks.
-
-### Sample Image
-![Original Image](https://github.com/Geetha-Shashank-Pericherla/Aerial-Semantic-Segmentation/blob/main/results/validation_image.png)
-
-### Output mask for each class:
-![Output masks](https://github.com/Geetha-Shashank-Pericherla/Aerial-Semantic-Segmentation/blob/main/results/output_mask_for_each_class.png)
+🔗 **Stay Connected:** [LinkedIn](https://www.linkedin.com/in/geetha-shashank-pericherla/) | [GitHub](https://github.com/Shashank-Pericherla) | [Website](#)
 
 
-## References
-- [U-Net Paper](https://arxiv.org/abs/1505.04597)
-- [Semantic Drone Dataset](https://www.kaggle.com/datasets/bulentsiyah/semantic-drone-dataset/data)
-- [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
+### ⭐ If you found this project helpful, give it a star! ⭐
 
